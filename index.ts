@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
-
+import chalk from "chalk";
 const answer = await inquirer.prompt([
   { message: "Enter first number", type: "number", name: "firstNumber" },
   { message: "Enter second number", type: "number", name: "secondNumber" },
@@ -13,13 +13,13 @@ const answer = await inquirer.prompt([
 ]);
 
 if (answer.operator === "Addition") {
-  console.log("Your answer is", answer.firstNumber + answer.secondNumber);
+  console.log(chalk.green.bold("Your answer is", answer.firstNumber + answer.secondNumber));
 } else if (answer.operator === "Subtraction") {
-  console.log("Your answer is", answer.firstNumber - answer.secondNumber);
+  console.log(chalk.yellow.bold("Your answer is", answer.firstNumber - answer.secondNumber));
 } else if (answer.operator === "Multiplication") {
-  console.log("Your answer is", answer.firstNumber * answer.secondNumber);
+  console.log(chalk.red.bold("Your answer is", answer.firstNumber * answer.secondNumber));
 } else if (answer.operator === "Division") {
-  console.log("Your answer is", answer.firstNumber / answer.secondNumber);
+  console.log(chalk.blue.bold("Your answer is", answer.firstNumber / answer.secondNumber));
 } else {
   console.log("Please select valid operator");
 }
